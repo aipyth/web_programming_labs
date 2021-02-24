@@ -1,0 +1,222 @@
+@import "./normalize.css";
+
+html {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    background-color: rgba(200, 200, 240, 0.4);
+}
+
+header #logo {
+    color: rgba(0, 0, 70, 0.9);
+}
+
+header nav {
+    position: relative;
+    margin-left: 20px;
+}
+
+
+/* Dropdown Menu */
+header nav .dropbtn {
+    background-color: rgba(200, 200, 240, 0.5);
+    min-width: 10vw;
+    padding: 10px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+header nav .dropdw-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    /* min-width: 30vw; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    list-style-type: none;
+}
+
+header nav .dropdw-content a {
+    color: black;
+    min-width: 10vw;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+header nav .dropdw-content a:hover {
+    background-color: #f1f1f1;
+}
+
+header nav:hover .dropdw-content {
+    display: flex;
+    flex-direction: column;
+}
+
+header nav:hover .dropbtn {
+    background-color: rgba(200, 200, 240, 0.6);
+}
+
+main {
+    background-color: rgba(200, 200, 240, 0.2);
+    ;
+}
+
+main {
+    /* margin: 0 auto; */
+    padding: 1em;
+
+    font-family: serif;
+    font-size: 1.35em;
+}
+
+@media screen and (min-width: 900px) {
+    main {
+        padding: 0.8em 25vw;
+        max-width: 60vw;
+    }
+}
+
+main h1 {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+main img, video, audio {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.3em;
+    max-width: 80vw;
+}
+
+main p {
+    line-height: 1.5;
+}
+
+main p::first-line {
+    padding-left: 10px;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    align-items: center;
+    min-height: 500px;
+    color: white;
+
+    background-image: url('../images/rybak.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer > p {
+    margin: 1em;
+    font-size: 1.8em;
+    font-weight: bold;
+    max-width: 60vw;
+}
+
+footer address {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    margin: 0.5em;
+}
+
+footer aside {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 1em;
+}
+
+/* form styles */
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+main form input {
+    width: 30vw;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+main form input[type="radio"] {
+    width: auto;
+}
+
+main form p {
+    font-size: 1.1em;
+    font-style: bold;
+    font-family: sans-serif;
+}
+
+/* modal window */
+
+#form-info-btn {
+    background-color: rgba(100, 100, 100, 0.3);
+    border: none;
+    padding: 1em;
+    border-radius: 10px;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    transition: all 0.5s;
+}
+
+#form-info-btn:hover {
+    background-color: rgba(100, 100, 100, 0.8);
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
