@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IpThIsT</title>
+</head>
+<body>
+    <header>
+        <h1><abbr title="IPT HiSt">IPTH</abbr></h1>
+        <nav>
+            <ul>
+                <li><a href="./signin.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="" method="post">
+            <p>
+                <label>
+                    Name:
+                    <input type="text" name="name" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Surname:
+                    <input type="text" name="surname" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Email: 
+                    <input type="email" name="email" required="required" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" autofocus placeholder="example@mail.com">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Telephone:
+                    <input type="text" name="tel" pattern="^(\+)?(\d{10}|\d{12})$" placeholder="381234567899">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Birth date:
+                    <input type="date" name="birth">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Personal website:
+                    <input type="url" name="website" placeholder="https://example.com">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Graduation year:
+                    <input type="number" name="graduation" min=1991 max=2021 value=2016 required="required">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Password:
+                    <input type="text" name="password" required="required" id="password" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Type of your mind?
+                    <p>
+                        <input name="dzen" type="radio" value="notdzen"> not dzen
+                    </p>
+                    <p>
+                        <input name="dzen" type="radio" value="dzen"> dzen
+                    </p>
+                    <p>
+                        <input name="dzen" type="radio" value="fdzen"> full dzen
+                    </p>
+                </label>
+            </p>
+
+
+            <p>
+                <input type="submit">
+            </p>
+        </form>
+
+    </main>
+</body>
+</html>
