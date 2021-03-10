@@ -23,91 +23,72 @@
     <main>
         <button id="form-info-btn">What is this info?</button>
 
-        <div id="forminfo" class="modal">
+        <div id="forminfo" class="modal-hidden">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Some text in the Modal..</p>
+                <p>Fields Name, Surname, Email and Password are required</p>
+                <p>Fields Telephone, Birth date, Presonal website and Graduation year are optional</p>
+                <p></p>
+                <p>Email is your e-mail</p>
+                <p></p>
             </div>
         </div>
 
         <form action="" method="post">
             <p>
                 <label>
-                    Name:
-                    <input type="text" name="name" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+" autofocus>
+                    Name*:
+                    <input type="text" id="name" name="name" placeholder="Oleksandr" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+" autofocus>
                 </label>
             </p>
             <p>
                 <label>
-                    Surname:
-                    <input type="text" name="surname" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+">
+                    Surname*:
+                    <input type="text" id="surname" name="surname" placeholder="Kireienko" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+">
                 </label>
             </p>
             <p>
                 <label>
-                    Email: 
-                    <input type="email" name="email" required="required" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="example@mail.com">
+                    Email*: 
+                    <input type="email" id="email" name="email" required="required" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="example@mail.com">
                 </label>
             </p>
             <p>
                 <label>
                     Telephone:
-                    <input type="text" name="tel" pattern="^(\+)?(\d{10}|\d{12})$" placeholder="381234567899">
+                    <input type="text" id="tel" name="tel" pattern="^(\+)?(\d{10}|\d{12})$" placeholder="381234567899">
                 </label>
             </p>
             <p>
                 <label>
                     Birth date:
-                    <input type="date" name="birth">
+                    <input type="date" id="birth" name="birth">
                 </label>
             </p>
             <p>
                 <label>
                     Personal website:
-                    <input type="url" name="website" placeholder="https://example.com">
+                    <input type="url" id="website" name="website" placeholder="https://example.com">
                 </label>
             </p>
             <p>
                 <label>
                     Graduation year:
-                    <input type="number" name="graduation" min=1991 max=2021 value=2016 required="required">
+                    <input type="number" id="graduation" name="graduation" min=1991 max=2021 value=2016 required="required">
                 </label>
             </p>
             <p>
                 <label>
-                    Password:
-                    <input type="password" name="password" required="required" id="password" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}">
+                    Password*:
+                    <input type="password" id="password" name="password" required="required" id="password" pattern="[A-Za-z\d@$!%*#?&]{8,}">
                 </label>
             </p>
-
-            <p>
-                Type of your mind?
-                <p>
-                    <label>
-                        not dzen
-                        <input name="dzen" type="radio" value="nodzen">
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        dzen
-                        <input name="dzen" type="radio" value="dzen"> 
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        full dzen
-                        <input name="dzen" type="radio" value="fdzen">
-                    </label>
-                </p>
-            </p>
-
-
             <p>
                 <input type="submit">
             </p>
         </form>
 
     </main>
+    <script src="/js/main.js"></script>
 </body>
 </html>

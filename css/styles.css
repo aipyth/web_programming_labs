@@ -75,6 +75,7 @@ main {
 
     font-family: serif;
     font-size: 1.35em;
+    background-color: #f1f1f1;
 }
 
 @media screen and (min-width: 900px) {
@@ -187,16 +188,24 @@ main form p {
     color: white;
 }
 
-.modal {
-    display: none;
+.modal-hidden {
+    display: flex;
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.modal-visible {
+    z-index: 1;
+    opacity: 1;
 }
 
 .modal-content {
@@ -204,7 +213,14 @@ main form p {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    border-radius: 10px;
+    width: 48vw;
+    height: 30vh;
+    box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.2);
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    text-align: center;
 }
 
 .close {
@@ -212,6 +228,7 @@ main form p {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    transition: all 1s;
 }
 
 .close:hover,
