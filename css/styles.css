@@ -215,7 +215,7 @@ main form p {
     border: 1px solid #888;
     border-radius: 10px;
     width: 48vw;
-    height: 30vh;
+    min-height: 30vh;
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.2);
 
     font-family: Georgia, 'Times New Roman', Times, serif;
