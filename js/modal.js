@@ -15,14 +15,18 @@ const hideModalBtn = document.querySelector(".close")
 hideModalBtn.addEventListener('click', hideHint)
 
 function _postponeModal() {
-    var modalWaiter = setInterval(showHint, 5000)
+    var interval = 10000
+    var modalWaiter = setInterval(showHint, interval)
     return function () {
+        console.log("postponed modal window appearence")
         clearInterval(modalWaiter)
-        modalWaiter = setInterval(showHint, 5000)
+        modalWaiter = setInterval(showHint, interval)
     }
 }
 
 var postponeModal = _postponeModal()
+
+hideModalBtn.addEventListener('click', postponeModal)
 
 var allInputs = document.querySelectorAll('input')
 
