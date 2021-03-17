@@ -8,7 +8,7 @@ var passwordInput = document.querySelector("#password")
 var nameInputRegex = new RegExp("[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+")
 var surnameInputRegex = new RegExp("[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+")
 var emailInputRegex = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
-var telInputRegex = new RegExp("^(\\+)?(\\d{10}|\\d{12})$")
+var telInputRegex = new RegExp("^(\\+)?(\\d{10}|\\d{12})?$")
 var passwordInputRegex = new RegExp("[A-Za-z\\d@$!%*#?&]{8,}")
 
 

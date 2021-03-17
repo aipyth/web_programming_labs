@@ -6,6 +6,10 @@ class Student {
         this.course = course
     }
 
+    get str() {
+        return "[ " + this.name + ' ' + this.surname + ' ' + this.age + ' ' + this.course + " ]"
+    }
+
     GetOlder(ch) {
         this.age = this.age + ch
         return this
@@ -23,8 +27,14 @@ class Student {
 }
 
 let st = new Student("Oleg", "Oleg", 30, 2)
-console.log("Student object created: ", st)
-console.log("Changes surname: ", st.ChangeSurname("Ol"))
-console.log("Moved to next course: ", st.MoveToNextCourse())
-console.log("And got older: ", st.GetOlder(1))
-console.log("Finally the student is: ", st)
+document.querySelector('#obj').innerHTML = "<p>Student object created: " + st.str + "</p>"
+document.querySelector('#obj').innerHTML += "<p>Changes surname: " + st.ChangeSurname("Ol").str  + "</p>"
+document.querySelector('#obj').innerHTML += "<p>Moved to next course: " + st.MoveToNextCourse().str + "</p>"
+document.querySelector('#obj').innerHTML += "<p>And got older: " + st.GetOlder(1).str  + "</p>"
+document.querySelector('#obj').innerHTML += "<p>Finally the student is: " + st.str + "</p>"
+
+// console.log("Student object created: ", st)
+// console.log("Changes surname: ", st.ChangeSurname("Ol"))
+// console.log("Moved to next course: ", st.MoveToNextCourse())
+// console.log("And got older: ", st.GetOlder(1))
+// console.log("Finally the student is: ", st)

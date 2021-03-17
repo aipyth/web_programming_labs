@@ -24,7 +24,7 @@ $("form").validate({
         },
         tel: {
             required: true,
-            regex: /^(\+)?(\d{10}|\d{12})$/
+            regex: /^(\+)?(\d{10}|\d{12})?$/
         },
         password: {
             required: true,
