@@ -1,18 +1,14 @@
 function max(...args) {
     var m = args[0]
-    for (a of args) {
-        if (a > m) {
-            m = a
+    for (i = 0; i < args.length; i++) {
+        if (args[i] > m) {
+            m = args[i]
         }
     }
     return m
 }
 
-// var vals = prompt("Enter values for max:")
+var vals = prompt("(5) Enter values for max:")
 
-// console.log(typeof vals)
+alert(max(...vals.split(' ').map(x => { return parseInt(x) })))
 
-// var el = document.createElement('input')
-// document.body.innerHTML = document.body.innerHTML + "<input type=\"text\" id=\"func\">"
-
-// document.body.innerHTML = document.body.innerHTML + "<input type=\"text\" id=\"func\">"

@@ -37,61 +37,78 @@
         </div>
 
         <form action="" method="post">
-            <p>
+            <div>
+                <span class="error-native"></span>
                 <label>
                     Name*:
-                    <input type="text" id="name" name="name" placeholder="Oleksandr" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+" autofocus>
+                    <!-- <input type="text" id="name" name="name" placeholder="Oleksandr" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+" autofocus> -->
+                    <input type="text" id="name" name="name" placeholder="Oleksandr" required="required" autofocus>
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
+                <span class="error-native"></span>
                 <label>
                     Surname*:
-                    <input type="text" id="surname" name="surname" placeholder="Kireienko" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+">
+                    <!-- <input type="text" id="surname" name="surname" placeholder="Kireienko" required="required" pattern="[A-ZА-ЯІЇЄ][a-zA-Z0-9а-яА-ЯіІїЇєЄ]+"> -->
+                    <input type="text" id="surname" name="surname" placeholder="Kireienko" required="required">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
+                <span class="error-native"></span>
                 <label>
                     Email*: 
-                    <input type="email" id="email" name="email" required="required" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="example@mail.com">
+                    <!-- <input type="email" id="email" name="email" required="required" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="example@mail.com"> -->
+                    <input type="email" id="email" name="email" required="required" placeholder="example@mail.com">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
+                <span class="error-native"></span>
                 <label>
                     Telephone:
-                    <input type="text" id="tel" name="tel" pattern="^(\+)?(\d{10}|\d{12})$" placeholder="381234567899">
+                    <!-- <input type="text" id="tel" name="tel" pattern="^(\+)?(\d{10}|\d{12})$" placeholder="381234567899"> -->
+                    <input type="text" id="tel" name="tel" placeholder="381234567899">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
                 <label>
                     Birth date:
                     <input type="date" id="birth" name="birth">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
                 <label>
                     Personal website:
                     <input type="url" id="website" name="website" placeholder="https://example.com">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
                 <label>
                     Graduation year:
                     <input type="number" id="graduation" name="graduation" min=1991 max=2021 value=2016 required="required">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
+                <span class="error-native"></span>
                 <label>
                     Password*:
-                    <input type="password" id="password" name="password" required="required" id="password" pattern="[A-Za-z\d@$!%*#?&]{8,}">
+                    <!-- <input type="password" id="password" name="password" required="required" id="password" pattern="[A-Za-z\d@$!%*#?&]{8,}"> -->
+                    <input type="password" id="password" name="password" required="required" id="password">
                 </label>
-            </p>
-            <p>
+            </div>
+            <div>
                 <input type="submit">
-            </p>
+            </div>
         </form>
 
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+
+
     <script src="./js/modal.js"></script>
     <script src="./js/function.js"></script>
+    <script src="./js/object.js"></script>
+    <script src="./js/native_js_validation.js"></script>
+    <!-- <script src="./js/jQ_validate.js"></script> -->
 </body>
 </html>

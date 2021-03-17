@@ -165,10 +165,40 @@ main form input[type="radio"] {
     width: auto;
 }
 
-main form p {
+main form div {
     font-size: 1.1em;
     font-style: bold;
     font-family: sans-serif;
+    margin: 10px 0;
+}
+
+main .error {
+    color: red;
+    border: 2px solid red;
+}
+
+main label.error {
+    padding: 1.5em;
+    font-size: 0.75em;
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 5px;
+    border-radius: 0 20px 20px 0;
+    transition: all 0.9s;
+}
+
+main .error-native {
+    color: red;
+    width: 30vw;
+    font-size: 0.75em;
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 5px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: all 0.9s;
+}
+
+main .error-native-visible {
+    opacity: 1;
 }
 
 /* modal window */
@@ -201,6 +231,11 @@ main form p {
     z-index: -1;
     opacity: 0;
     transition: all 0.5s;
+}
+
+.modal-visible:target {
+    z-index: 1;
+    opacity: 1;
 }
 
 .modal-visible {
