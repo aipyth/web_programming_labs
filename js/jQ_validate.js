@@ -23,7 +23,7 @@ $("form").validate({
             regex: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
         },
         tel: {
-            required: true,
+            required: false,
             regex: /^(\+)?(\d{10}|\d{12})?$/
         },
         password: {
