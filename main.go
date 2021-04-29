@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -32,10 +33,21 @@ type UserUpdateInfo struct {
 
 func initDatabase() *database.Queries {
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
-	log.Println("DB", db)
+	// log.Println("DB", db)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	initContents, err := ioutil.ReadFile("./schema/schema.sql")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = db.Exec(string(initContents))
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	return database.New(db)
 }
 
