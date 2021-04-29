@@ -10,9 +10,10 @@ import (
 	"github.com/google/uuid"
 )
 
-const createUser = `-- name: CreateUser :exec
+const createUser = `-- name: CreateUser :one
 insert into users (email, password, token, firstname, lastname)
 values($1, $2, $3, $4, $5)
+returning id, created_at, updated_at, email, password, token, firstname, lastname, phone
 `
 
 type CreateUserParams struct {
@@ -23,15 +24,27 @@ type CreateUserParams struct {
 	Lastname  sql.NullString `json:"lastname"`
 }
 
-func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) error {
-	_, err := q.db.ExecContext(ctx, createUser,
+func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
+	row := q.db.QueryRowContext(ctx, createUser,
 		arg.Email,
 		arg.Password,
 		arg.Token,
 		arg.Firstname,
 		arg.Lastname,
 	)
-	return err
+	var i User
+	err := row.Scan(
+		&i.ID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+		&i.Email,
+		&i.Password,
+		&i.Token,
+		&i.Firstname,
+		&i.Lastname,
+		&i.Phone,
+	)
+	return i, err
 }
 
 const deleteUser = `-- name: DeleteUser :exec
@@ -163,11 +176,12 @@ func (q *Queries) GetUserById(ctx context.Context, id int64) (User, error) {
 	return i, err
 }
 
-const updateUser = `-- name: UpdateUser :exec
+const updateUser = `-- name: UpdateUser :one
 update users set
 email = $2, password = $3, token = $4,
 firstname = $5, lastname = $6, updated_at = now()
 where id = $1
+returning id, created_at, updated_at, email, password, token, firstname, lastname, phone
 `
 
 type UpdateUserParams struct {
@@ -179,8 +193,8 @@ type UpdateUserParams struct {
 	Lastname  sql.NullString `json:"lastname"`
 }
 
-func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) error {
-	_, err := q.db.ExecContext(ctx, updateUser,
+func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (User, error) {
+	row := q.db.QueryRowContext(ctx, updateUser,
 		arg.ID,
 		arg.Email,
 		arg.Password,
@@ -188,5 +202,17 @@ func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) error {
 		arg.Firstname,
 		arg.Lastname,
 	)
-	return err
+	var i User
+	err := row.Scan(
+		&i.ID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+		&i.Email,
+		&i.Password,
+		&i.Token,
+		&i.Firstname,
+		&i.Lastname,
+		&i.Phone,
+	)
+	return i, err
 }

@@ -36,7 +36,9 @@ func (u *User) create() error {
 		Lastname:  u.Lastname,
 	}
 	log.Println(arg)
-	return u.db.CreateUser(defaultContext, arg)
+	var err error
+	u.User, err = u.db.CreateUser(defaultContext, arg)
+	return err
 }
 
 func (u *User) update() error {
@@ -52,7 +54,9 @@ func (u *User) update() error {
 	} else {
 		arg.Password = passwordPrefix + hashPassword(u.Password)
 	}
-	return u.db.UpdateUser(defaultContext, arg)
+	var err error
+	u.User, err = u.db.UpdateUser(defaultContext, arg)
+	return err
 }
 
 func (u *User) Save() error {
