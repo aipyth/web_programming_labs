@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"io/ioutil"
 	"log"
@@ -82,6 +83,32 @@ func main() {
 		user.Password = ""
 		user.Token = uuid.Nil
 		c.JSON(http.StatusOK, user.User)
+	})
+
+	router.GET("/user/latest10", func(c *gin.Context) {
+		users, err := qs.GetLatest10(context.Background())
+		if err != nil {
+			c.AbortWithError(http.StatusInternalServerError, err)
+			return
+		}
+		for i := range users {
+			users[i].Password = ""
+			users[i].Token = uuid.Nil
+		}
+		c.JSON(http.StatusOK, users)
+	})
+
+	router.GET("/user/all", func(c *gin.Context) {
+		users, err := qs.GetAllUsers(context.Background())
+		if err != nil {
+			c.AbortWithError(http.StatusInternalServerError, err)
+			return
+		}
+		for i := range users {
+			users[i].Password = ""
+			users[i].Token = uuid.Nil
+		}
+		c.JSON(http.StatusOK, users)
 	})
 
 	router.POST("/user", func(c *gin.Context) {

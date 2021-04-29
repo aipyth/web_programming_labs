@@ -1,4 +1,4 @@
-FROM golang:alpine3.13
+FROM alpine
 WORKDIR /app
-COPY . /app
-CMD "weblabipt"
+COPY ./weblabipt /app
+CMD [ "/app/weblabipt" ]

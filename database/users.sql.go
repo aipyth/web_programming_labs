@@ -11,8 +11,8 @@ import (
 )
 
 const createUser = `-- name: CreateUser :one
-insert into users (email, password, token, firstname, lastname)
-values($1, $2, $3, $4, $5)
+insert into users (email, password, token, firstname, lastname, updated_at)
+values($1, $2, $3, $4, $5, now())
 returning id, created_at, updated_at, email, password, token, firstname, lastname, phone
 `
 
