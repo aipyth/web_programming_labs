@@ -71,7 +71,7 @@ func main() {
 		c.HTML(http.StatusOK, "signin.html", nil)
 	})
 
-	router.GET("/user:id", func(c *gin.Context) {
+	router.GET("/user/:id", func(c *gin.Context) {
 		id, err := strconv.Atoi(c.Param("id"))
 		if err != nil {
 			c.AbortWithError(http.StatusBadRequest, err)
