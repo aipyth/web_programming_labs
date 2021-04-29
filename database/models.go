@@ -12,7 +12,7 @@ import (
 type User struct {
 	ID        int64          `json:"id"`
 	CreatedAt time.Time      `json:"created_at"`
-	UpdatedAt sql.NullTime   `json:"updated_at"`
+	UpdatedAt time.Time      `json:"updated_at"`
 	Email     string         `json:"email"`
 	Password  string         `json:"password"`
 	Token     uuid.UUID      `json:"token"`
