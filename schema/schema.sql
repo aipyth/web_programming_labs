@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS users (
     lastname    varchar(255)    
 );
 
-ALTER TABLE users ADD phone bigint;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS phone bigint;
