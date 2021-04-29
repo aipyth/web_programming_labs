@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+    database:
+        image: postgres
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        volumes:
+            # - postgres:/var/lib/postgresql/data:Z
+            # - ./src/database:/database:Z
+            - ./schema/schema.sql:/docker-entrypoint-initdb.d/init.sql
+        ports:
+            - 8003:5432
+
+    server:
+        build: .
+        # command: ls -lah
+        # command: sh -c "ls -lah /app && /app/weblabipt"
+        command: go run main.go
+        environment: 
+            # DATABASE_URL: postgres://postgres:postgres@database:5432
+            DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
+        ports: 
+            - 8000:8000
+        depends_on:
+            - database
+
