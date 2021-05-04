@@ -9,8 +9,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* position: fixed; */
+    width: 100%;
     height: 10vh;
-    background-color: rgba(200, 200, 240, 0.4);
+    background-color: rgba(200, 200, 240, 0.8);
+    /* margin-bottom: 10vh; */
 }
 
 header #logo {
@@ -20,6 +23,26 @@ header #logo {
 header nav {
     position: relative;
     margin-left: 20px;
+}
+
+header .header-btn {
+    background-color: rgba(200, 200, 240, 0.5);
+    /* min-width: 10vw; */
+    font-size: 1.5em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    padding: 10px 30px;
+    margin: 15px;
+
+    display: flex;
+    justify-content: center;
+}
+
+header .header-btn a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -225,9 +248,7 @@ main .error-native-visible {
     left: 0;
     top: 0;
     width: 100%;
-    /* height: 100%; */
     overflow: auto;
-    /* background-color: rgba(0, 0, 0, 0.4); */
     z-index: -1;
     opacity: 0;
     transition: all 0.5s;
@@ -271,4 +292,95 @@ main .error-native-visible {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/*  LOGIN AREA  */
+
+.login-area {
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.3rem;
+
+    opacity: 1;
+    z-index: 30;
+    transition: all 0.7s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    z-index: -30;
+
+    transition: all 1s;
+}
+
+.login-area .login-container {
+    min-width: 45vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.09);
+
+    /* z-index: 70; */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+
+.login-container form input {
+    width: 30vw;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.login-container form div {
+    font-size: 1.1em;
+    font-style: bold;
+    font-family: sans-serif;
+    margin: 10px 0;
+}
+
+.error {
+    color: red;
+    border: 2px solid red;
+}
+
+label.error {
+    padding: 1.5em;
+    font-size: 0.75em;
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 5px;
+    border-radius: 0 20px 20px 0;
+    transition: all 0.9s;
+}
+
+.error-native {
+    color: red;
+    width: 30vw;
+    font-size: 0.75em;
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 5px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: all 0.9s;
+}
+
+.error-native-visible {
+    opacity: 1;
 }

@@ -11,7 +11,7 @@ function hideHint() {
 const showModalButton = document.querySelector("#form-info-btn")
 showModalButton.addEventListener('click', showHint)
 
-const hideModalBtn = document.querySelector(".close")
+const hideModalBtn = document.querySelector(".modal-content > .close")
 hideModalBtn.addEventListener('click', hideHint)
 
 function _postponeModal() {
@@ -24,12 +24,12 @@ function _postponeModal() {
     }
 }
 
-var postponeModal = _postponeModal()
+// var postponeModal = _postponeModal()
 
-hideModalBtn.addEventListener('click', postponeModal)
+// hideModalBtn.addEventListener('click', postponeModal)
 
-var allInputs = document.querySelectorAll('input')
+// var allInputs = document.querySelectorAll('input')
 
-for (input of allInputs) {
-    input.addEventListener('input', postponeModal)
-}
+// for (input of allInputs) {
+//     input.addEventListener('input', postponeModal)
+// }

@@ -66,7 +66,7 @@ passwordInput.addEventListener("input", () => {
     console.log("Password is valid ", valid)
     var errorField = passwordInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
     if  (!valid) {
-        errorField.innerHTML = "Invalid password."
+        errorField.innerHTML = "Weak password."
         errorField.classList.add('error-native-visible')
     } else {
         errorField.classList.remove('error-native-visible')

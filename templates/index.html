@@ -9,16 +9,93 @@
 <body>
     <header>
         <h1 id="logo"><abbr title="IPT HiSt">IPTH</abbr></h1>
-        <nav>
+        <!-- <nav>
             <button class="dropbtn">Menu</button>
 
             <div class="dropdw-content">
                 <li><a href="/">Main Page</a></li>
                 <li><a href="/signin">Sign In</a></li>
             </ul>
-        </nav>
+        </nav> -->
+
+        <span class="header-btn">
+            <a href="/">Main Page</a>
+        </span>
+
+        <span class="header-btn" id="signup-btn">
+            Sign Up
+        </span>
 
     </header>
+
+    <div class="login-area hidden" id="login-field">
+
+        <!-- <div class="login-content"> -->
+            <div class="login-container">
+                <span class="close">&times;</span>
+                <button id="form-info-btn">What is this info?</button>
+
+                <div id="forminfo" class="modal-hidden">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>Fields Name, Surname, Email, Password and Graduation year are required</p>
+                        <p>Fields Telephone, Birth date, Presonal website and Graduation year are optional</p>
+                        <p></p>
+                        <p>Email is your e-mail, it must be valid</p>
+                        <p>Telephone contains 12 digits</p>
+                        <p>Password must contain >8 characters</p>
+                        <p></p>
+                    </div>
+                </div>
+        
+                <form action="" method="post">
+                    <div>
+                        <span class="error-native"></span>
+                        <label>
+                            Name*:
+                            <input type="text" id="name" name="name" placeholder="Oleksandr" required="required" autofocus>
+                        </label>
+                    </div>
+                    <div>
+                        <span class="error-native"></span>
+                        <label>
+                            Surname*:
+                            <input type="text" id="surname" name="surname" placeholder="Kireienko" required="required">
+                        </label>
+                    </div>
+                    <div>
+                        <span class="error-native"></span>
+                        <label>
+                            Email*: 
+                            <input type="email" id="email" name="email" required="required" placeholder="example@mail.com">
+                        </label>
+                    </div>
+                    <div>
+                        <span class="error-native"></span>
+                        <label>
+                            Telephone:
+                            <input type="text" id="tel" name="tel" placeholder="381234567899">
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <span class="error-native"></span>
+                        <label>
+                            Password*:
+                            <input type="password" id="password" name="password" required="required" id="password">
+                        </label>
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+                </form>
+
+            </div>
+    
+            
+        <!-- </div> -->
+        
+    </div>
 
     <main>
 
@@ -130,5 +207,14 @@
             </p>
         </aside>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+
+
+    <script src="/static/js/header.js"></script>
+    <script src="/static/js/modal.js"></script>
+    <script src="/static/js/native_js_validation.js"></script>
+    <!-- <script src="/static/js/jQ_validate.js"></script> -->
 </body>
 </html>
