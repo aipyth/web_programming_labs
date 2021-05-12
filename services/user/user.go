@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/sha256"
 	"encoding/base64"
-	"log"
 	"strings"
 	"weblabipt/database"
 
@@ -34,8 +33,9 @@ func (u *User) create() error {
 		Token:     uuid.New(),
 		Firstname: u.Firstname,
 		Lastname:  u.Lastname,
+		Phone:     u.Phone,
 	}
-	log.Println(arg)
+	// log.Println(arg)
 	var err error
 	u.User, err = u.db.CreateUser(defaultContext, arg)
 	return err

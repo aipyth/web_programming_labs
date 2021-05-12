@@ -12,74 +12,143 @@ var telInputRegex = new RegExp("^(\\+)?(\\d{10}|\\d{12})?$")
 var passwordInputRegex = new RegExp("[A-Za-z\\d@$!%*#?&]{8,}")
 
 
-
-nameInput.addEventListener("input", () => {
+nameFieldValidator = function() {
     var valid = nameInputRegex.test(nameInput.value)
-    console.log("Name is valid ", valid)
-    var errorField = nameInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
-    if  (!valid) {
-        errorField.innerHTML = "Invalid input. Look up at placeholder."
-        errorField.classList.add('error-native-visible')
-    } else {
-        errorField.classList.remove('error-native-visible')
+    return {
+        data: function() {
+            return nameInput.value
+        },
+        valid: function() {
+            return valid
+        },
+        revalidate: function() {
+            valid = nameInputRegex.test(nameInput.value)
+            console.log("Name is valid ", valid)
+            var errorField = nameInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
+            if  (!valid) {
+                errorField.innerHTML = "Invalid input. Look up at placeholder."
+                errorField.classList.add('error-native-visible')
+            } else {
+                errorField.classList.remove('error-native-visible')
+            }
+        }
     }
-})
+}()
+nameInput.addEventListener("input", nameFieldValidator.revalidate)
 
-surnameInput.addEventListener("input", () => {
-    var valid = surnameInputRegex.test(surnameInput.value)
-    console.log("Surname is valid ", valid)
-    var errorField = surnameInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
-    if  (!valid) {
-        errorField.innerHTML = "Invalid input. Look up at placeholder."
-        errorField.classList.add('error-native-visible')
-    } else {
-        errorField.classList.remove('error-native-visible')
+
+surnameFieldValidator = function() {
+    let valid = surnameInputRegex.test(surnameInput.value)
+    return {
+        data: function() {
+            return surnameInput.value
+        },
+        valid: function() {
+            return valid
+        },
+        revalidate: function() {
+            valid = surnameInputRegex.test(surnameInput.value)
+            console.log("Surname is valid ", valid)
+            var errorField = surnameInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
+            if  (!valid) {
+                errorField.innerHTML = "Invalid input. Look up at placeholder."
+                errorField.classList.add('error-native-visible')
+            } else {
+                errorField.classList.remove('error-native-visible')
+            }
+        }
     }
-})
 
-emailInput.addEventListener("input", () => {
-    var valid = emailInputRegex.test(emailInput.value)
-    console.log("Email is valid ", valid)
-    var errorField = emailInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
-    if  (!valid) {
-        errorField.innerHTML = "Invalid input. Look up at placeholder."
-        errorField.classList.add('error-native-visible')
-    } else {
-        errorField.classList.remove('error-native-visible')
+}()
+surnameInput.addEventListener("input", surnameFieldValidator.revalidate)
+
+emailFieldValidator = function() {
+    let valid = emailInputRegex.test(emailInput.value)
+    return {
+        data: function() {
+            return emailInput.value
+        },
+        valid: function() {
+            return valid
+        },
+        revalidate: function() {
+            valid = emailInputRegex.test(emailInput.value)
+            console.log("Email is valid ", valid)
+            var errorField = emailInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
+            if  (!valid) {
+                errorField.innerHTML = "Invalid input. Look up at placeholder."
+                errorField.classList.add('error-native-visible')
+            } else {
+                errorField.classList.remove('error-native-visible')
+            }
+        }
     }
-})
+}()
+emailInput.addEventListener("input", emailFieldValidator.revalidate)
 
-telInput.addEventListener("input", () => {
+telFieldValidator = function() {
     var valid = telInputRegex.test(telInput.value)
-    console.log("Tel is valid ", valid)
-    var errorField = telInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
-    if  (!valid) {
-        errorField.innerHTML = "Invalid input. Look up at placeholder."
-        errorField.classList.add('error-native-visible')
-    } else {
-        errorField.classList.remove('error-native-visible')
+    return {
+        data: function() {
+            return telInput.value
+        },
+        valid: function() {
+            return valid
+        },
+        revalidate: function() {
+            valid = telInputRegex.test(telInput.value)
+            console.log("Tel is valid ", valid)
+            var errorField = telInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
+            if  (!valid) {
+                errorField.innerHTML = "Invalid input. Look up at placeholder."
+                errorField.classList.add('error-native-visible')
+            } else {
+                errorField.classList.remove('error-native-visible')
+            }
+        }
     }
-})
+}()
+telInput.addEventListener("input", telFieldValidator.revalidate)
 
-passwordInput.addEventListener("input", () => {
-    var valid = passwordInputRegex.test(passwordInput.value)
-    console.log("Password is valid ", valid)
-    var errorField = passwordInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
-    if  (!valid) {
-        errorField.innerHTML = "Weak password."
-        errorField.classList.add('error-native-visible')
-    } else {
-        errorField.classList.remove('error-native-visible')
+passwordFieldValidator = function() {
+    let valid = passwordInputRegex.test(passwordInput.value)
+    return {
+        data: function() {
+            return passwordInput.value
+        },
+        valid: function() {
+            return valid
+        },
+        revalidate: function() {
+            valid = passwordInputRegex.test(passwordInput.value)
+            console.log("Password is valid ", valid)
+            var errorField = passwordInput.previousSibling.parentElement.parentElement.querySelector('.error-native')
+            if  (!valid) {
+                errorField.innerHTML = "Weak password."
+                errorField.classList.add('error-native-visible')
+            } else {
+                errorField.classList.remove('error-native-visible')
+            }
+        }
     }
-})
+}()
+passwordInput.addEventListener("input", passwordFieldValidator.revalidate)
 
-form.addEventListener('submit', (e) => {
-    allFieldsValid = nameInputRegex.test(nameInput.value) && surnameInputRegex.test(surnameInput.value) &&
-        emailInputRegex.test(emailInput.value) && telInputRegex.test(telInput.value) &&
-        passwordInputRegex.test(passwordInput.value)
+let validators = [
+    nameFieldValidator,
+    surnameFieldValidator,
+    emailFieldValidator,
+    telFieldValidator,
+    passwordFieldValidator,
+]
 
-    if (!allFieldsValid) {
-        e.preventDefault()
-        return false
-    }
-})
+// form.addEventListener('submit', (e) => {
+//     allFieldsValid = nameInputRegex.test(nameInput.value) && surnameInputRegex.test(surnameInput.value) &&
+//         emailInputRegex.test(emailInput.value) && telInputRegex.test(telInput.value) &&
+//         passwordInputRegex.test(passwordInput.value)
+
+//     if (!allFieldsValid) {
+//         e.preventDefault()
+//         return false
+//     }
+// })

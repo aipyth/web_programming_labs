@@ -14,7 +14,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	_ "github.com/heroku/x/hmetrics/onload"
-	_ "github.com/lib/pq"
+	"github.com/lib/pq"
 )
 
 type UserCreationInfo struct {
@@ -118,6 +118,7 @@ func main() {
 			c.AbortWithError(http.StatusBadRequest, err)
 			return
 		}
+		// log.Println(u)
 		user := user.NewUser(qs, nil)
 		user.Email = u.Email
 		user.Password = u.Password
@@ -133,7 +134,13 @@ func main() {
 			Int64: u.Phone,
 			Valid: true,
 		}
-		if err = user.Save(); err != nil {
+		// log.Println("phone", u.Phone)
+		// log.Println("user", user)
+		err = user.Save()
+		if e, ok := err.(*pq.Error); ok && e.Code.Name() == "unique_violation" {
+			c.AbortWithStatus(http.StatusConflict)
+			return
+		} else if err != nil {
 			c.AbortWithError(http.StatusInternalServerError, err)
 			return
 		}

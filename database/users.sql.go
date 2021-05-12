@@ -11,8 +11,8 @@ import (
 )
 
 const createUser = `-- name: CreateUser :one
-insert into users (email, password, token, firstname, lastname, updated_at)
-values($1, $2, $3, $4, $5, now())
+insert into users (email, password, token, firstname, lastname, phone, updated_at)
+values($1, $2, $3, $4, $5, $6, now())
 returning id, created_at, updated_at, email, password, token, firstname, lastname, phone
 `
 
@@ -22,6 +22,7 @@ type CreateUserParams struct {
 	Token     uuid.UUID      `json:"token"`
 	Firstname sql.NullString `json:"firstname"`
 	Lastname  sql.NullString `json:"lastname"`
+	Phone     sql.NullInt64  `json:"phone"`
 }
 
 func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
@@ -31,6 +32,7 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 		arg.Token,
 		arg.Firstname,
 		arg.Lastname,
+		arg.Phone,
 	)
 	var i User
 	err := row.Scan(

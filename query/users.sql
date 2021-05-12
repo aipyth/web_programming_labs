@@ -15,8 +15,8 @@ select * from users
 where email = $1;
 
 -- name: CreateUser :one
-insert into users (email, password, token, firstname, lastname, updated_at)
-values($1, $2, $3, $4, $5, now())
+insert into users (email, password, token, firstname, lastname, phone, updated_at)
+values($1, $2, $3, $4, $5, $6, now())
 returning *;
 
 -- name: UpdateUser :one

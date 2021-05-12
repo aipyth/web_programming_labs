@@ -30,7 +30,6 @@
 
     <div class="login-area hidden" id="login-field">
 
-        <!-- <div class="login-content"> -->
             <div class="login-container">
                 <span class="close">&times;</span>
                 <button id="form-info-btn">What is this info?</button>
@@ -47,8 +46,17 @@
                         <p></p>
                     </div>
                 </div>
+
+                <div>
+                    <label for="send-option">jquery ajax?</label>
+                    <input type="checkbox" name="send-option" id="send-option">
+                </div>
+
+                <div class="errors" id="errors">
+
+                </div>
         
-                <form action="" method="post">
+                <form>
                     <div>
                         <span class="error-native"></span>
                         <label>
@@ -91,13 +99,17 @@
                 </form>
 
             </div>
-    
-            
-        <!-- </div> -->
         
     </div>
 
     <main>
+
+        <div class="last-signups-container">
+            <h4>Last signups</h4>
+            <div id="last-signups">
+    
+            </div>
+        </div>
 
         <h1>Short brief history</h1>
         <p>
@@ -215,6 +227,7 @@
     <script src="/static/js/header.js"></script>
     <script src="/static/js/modal.js"></script>
     <script src="/static/js/native_js_validation.js"></script>
-    <!-- <script src="/static/js/jQ_validate.js"></script> -->
+    <script src="/static/js/native_signup.js"></script>
+    <script src="/static/js/last_signups.js"></script>
 </body>
 </html>

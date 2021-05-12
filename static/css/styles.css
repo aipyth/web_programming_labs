@@ -384,3 +384,55 @@ label.error {
 .error-native-visible {
     opacity: 1;
 }
+
+.errors {
+    color: red;
+    /* width: 30vw; */
+    /* font-size: 0.75em; */
+    /* background-color: rgba(0, 0, 0, 0.09); */
+    padding: 5px;
+    border-radius: 20px;
+    /* opacity: 0; */
+    transition: all 0.9s;
+}
+
+
+/* LAST SIGNUPS LIST */
+
+.last-signups-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+}
+
+.signup-user {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px 15px;
+}
+
+.signup-user p {
+    margin: 0;
+    /* padding: 14px 5px; */
+}
+
+.signup-user .signup-date {
+    color: rgba(200, 0, 0, 1);
+    font-size: 1.2rem;
+}
+
+.signup-user .signup-name {
+    /* color: rgba(200, 0, 0, 1); */
+    font-size: 1.2rem;
+}
+
+.signup-user .signup-email {
+    /* color: rgba(200, 0, 0, 1); */
+    font-size: 1.2rem;
+}
