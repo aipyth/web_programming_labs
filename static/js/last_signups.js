@@ -13,7 +13,7 @@ function addSignups(user) {
     document.querySelector("#last-signups").innerHTML += html
 }
 
-// setInterval(function() {
+setInterval(function() {
     $.get("/user/latest10", function(data){
         document.querySelector("#last-signups").innerHTML = ""
 
@@ -21,4 +21,4 @@ function addSignups(user) {
             addSignups(user)
         }
     })
-// }, 1000)
+}, 1000)
