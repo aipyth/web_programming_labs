@@ -98,6 +98,17 @@ func main() {
 		c.JSON(http.StatusOK, users)
 	})
 
+	router.GET("/user/count", func(c *gin.Context) {
+		number, err := qs.CountUsers(context.Background())
+		if err != nil {
+			c.AbortWithError(http.StatusInternalServerError, err)
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{
+			"number": number,
+		})
+	})
+
 	router.GET("/user/all", func(c *gin.Context) {
 		users, err := qs.GetAllUsers(context.Background())
 		if err != nil {

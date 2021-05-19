@@ -28,3 +28,6 @@ returning *;
 
 -- name: DeleteUser :exec
 delete from users where id = $1;
+
+-- name: CountUsers :one
+select count(*) from users;
